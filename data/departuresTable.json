@@ -1,0 +1,106 @@
+[
+  {
+    "id": 1,
+    "time": "10:50",
+    "faq": "What is your name",
+    "destination": "Toronto",
+    "flightNo": "AH 3537",
+    "status": "Boarding"
+  },
+  {
+    "id": 2,
+    "time": "7:10",
+    "faq": "What is your name",
+    "destination": "Singapore",
+    "flightNo": "AH 223",
+    "status": "On Time"
+  },
+  {
+    "id": 3,
+    "time": "21:15",
+    "faq": "What is your name",
+    "destination": "Kuala Lumpur",
+    "flightNo": "AH 34",
+    "status": "Canceled"
+  },
+  {
+    "id": 4,
+    "time": "11:11",
+    "faq": "What is your name",
+    "destination": "Phuket",
+    "flightNo": "AH 3643",
+    "status": "checkin-in"
+  },
+  {
+    "id": 5,
+    "time": "11:11",
+    "faq": "What is your name",
+    "destination": "Bangkok",
+    "flightNo": "AH 353",
+    "status": "Boarding"
+  },
+  {
+    "id": 6,
+    "time": "11:11",
+    "faq": "What is your name",
+    "destination": "Chaing Mai",
+    "flightNo": "AH 353",
+    "status": "Boarding"
+  },
+  {
+    "id": 7,
+    "time": "11:11",
+    "faq": "What is your name",
+    "destination": "Vang Vieng",
+    "flightNo": "AH 353",
+    "status": "Boarding"
+  },
+  {
+    "id": 8,
+    "time": "11:11",
+    "faq": "What is your name",
+    "destination": "Ho Chi Minh City",
+    "flightNo": "AH 353",
+    "status": "Boarding"
+  },
+  {
+    "id": 9,
+    "time": "11:11",
+    "faq": "What is your name",
+    "destination": "Chaing Mai",
+    "flightNo": "AH 353",
+    "status": "Boarding"
+  },
+  {
+    "id": 10,
+    "time": "11:11",
+    "faq": "What is your name",
+    "destination": "Sri Lanka",
+    "flightNo": "AH 353",
+    "status": "Boarding"
+  },
+  {
+    "id": 11,
+    "time": "11:11",
+    "faq": "What is your name",
+    "destination": "Chiang Mai",
+    "flightNo": "AH 353",
+    "status": "Boarding"
+  },
+  {
+    "id": 12,
+    "time": "11:11",
+    "faq": "What is your name",
+    "destination": "Bali",
+    "flightNo": "AH 353",
+    "status": "Boarding"
+  },
+  {
+    "id": 13,
+    "time": "11:11",
+    "faq": "What is your name",
+    "destination": "Singapore",
+    "flightNo": "AH 353",
+    "status": "Boarding"
+  }
+]
