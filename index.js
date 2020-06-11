@@ -4,6 +4,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const users = require("./data/users.json");
 const departure = require("./data/departuresTable.json");
+const jwt = require("jsonwebtoken");
 const app = express();
 const port = 5000;
 
@@ -42,6 +43,29 @@ app.post("/users", (req, res) => {
 
   res.json(new_user);
 });
+
+// app.post("/users", (req, res) => {
+//   const { name, email } = req.body;
+
+//   const user_id = users.map((user) => user.id);
+
+//   const token = jwt.sign(
+//     {
+//       sub: (user_id.length > 0 ? Math.max(...user_id) : 0) + 1,
+//       name: name,
+//       email: email,
+//     },
+//     "mykey",
+//     { expiresIn: "3 hours" }
+//   );
+
+//   res.setHeader("Content-Type", "application/json");
+//   const new_user = users.concat(token);
+//   fs.writeFile("./data/users.json", JSON.stringify(new_user), (err) =>
+//     console.log(err)
+//   );
+//   res.status(200).send({ access_token: new_user });
+// });
 
 app.listen(port, () => {
   console.log(`Listening for port: ${port}`);
