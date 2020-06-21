@@ -1,0 +1,6 @@
+{
+  "name": "The Sweet Escape - Production",
+  "mail": {
+    "host": "prod-mail-server"
+  }
+}

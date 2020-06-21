@@ -1,12 +1,15 @@
 const express = require("express");
-const fs = require("fs");
+const { logger, authenticate } = require("./middleware/logger");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const users = require("./data/users.json");
-const departure = require("./data/departuresTable.json");
 const jwt = require("jsonwebtoken");
+const mongoose = require("mongoose");
+const morgan = require("morgan");
+const config = require("config");
+const users = require("./routes/users");
+const tse = require("./routes/tse");
+
 const app = express();
-const port = 5000;
 
 app.use(bodyParser.json());
 
@@ -16,33 +19,29 @@ app.use(
     credentials: true,
   })
 );
-app.get("/users", (req, res) => {
-  res.json(users);
-});
 
-app.get("/tse", (req, res) => {
-  res.json(departure);
-});
+app.use(logger);
+app.use(authenticate);
+app.use("/users", users);
+app.use("/tse", tse);
 
-app.post("/users", (req, res) => {
-  const { name, email } = req.body;
+mongoose
+  .connect("mongodb://localhost:27017/users", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.error("Could not connect to MongoDB", err));
+mongoose.set("useCreateIndex", true);
 
-  const user_id = users.map((user) => user.id);
+if (app.get("env") === "development") {
+  app.use(morgan("tiny"));
+  console.log("Morgan enabled...");
+}
 
-  const user = {
-    id: (user_id.length > 0 ? Math.max(...user_id) : 0) + 1,
-    name,
-    email,
-  };
+console.log("Application Name: " + config.get("name"));
 
-  res.setHeader("Content-Type", "application/json");
-  const new_user = users.concat(user);
-  fs.writeFile("./data/users.json", JSON.stringify(new_user), (err) =>
-    console.log(err)
-  );
-
-  res.json(new_user);
-});
+module.exports = app;
 
 // app.post("/users", (req, res) => {
 //   const { name, email } = req.body;
@@ -66,7 +65,3 @@ app.post("/users", (req, res) => {
 //   );
 //   res.status(200).send({ access_token: new_user });
 // });
-
-app.listen(port, () => {
-  console.log(`Listening for port: ${port}`);
-});
